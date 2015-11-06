@@ -70,5 +70,10 @@ public class User extends IdentifiedObject {
 		
 		this.viewsUser = viewsUser;
 	}
+	
+	public void addView(View view) {
+		
+		this.viewsUser.afegirAlFinal(view);
+	}
 
 }

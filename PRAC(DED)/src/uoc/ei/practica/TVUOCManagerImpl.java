@@ -74,7 +74,8 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		program.incActivityProgram();
 		
-		/*5. afegeixes al User la vista a partir del Program*/
+		/*5. afegeixes al User la vista a partir del Program*/ 
+		                               
 		
 		/*6. actualitzes tot el referent al top10*/
 		
