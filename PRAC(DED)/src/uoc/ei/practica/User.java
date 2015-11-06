@@ -59,7 +59,8 @@ public class User extends IdentifiedObject {
 		
 		this.password = password;
 	}
-
+	
+	
 	public LlistaEncadenada<View> getViewsUser() {
 		
 		return viewsUser;

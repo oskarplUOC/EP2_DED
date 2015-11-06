@@ -19,12 +19,16 @@ public class Program {
 	
 	private double ratingProgram;
 	
+	private int nRatingProgram;
+	
 	public Program(String idProgram, String name, String description, String idChannel) {
 		
 		this.idProgram = idProgram;
 		this.name = name;
 		this.description = description;
 		this.idChannel = idChannel;
+		this.ratingProgram = 0;
+		this.nRatingProgram = 0;
 			
 	}
 	
@@ -41,7 +45,7 @@ public class Program {
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append(this.idProgram).append(", ").append(this.name).append(", ");
-		sb.append(this.description).append(" ").append("views(" + this.activityProgram +") ").append("rating(0.0) ").append(Messages.LS);
+		sb.append(this.description).append(" ").append("views(" + this.activityProgram +") ").append("rating(" + this.rating() + ") ").append(Messages.LS);
 		
 		return sb.toString();
 				
@@ -56,6 +60,20 @@ public class Program {
 		
 		return activityProgram;
 	
+	}
+	
+	public void addRating(int rating) {
+		
+		this.ratingProgram += rating;
+		
+		this.nRatingProgram++;
+	}
+
+	public double rating() {						
+		
+		double result = (this.nRatingProgram != 0 ? this.ratingProgram/this.nRatingProgram:0);
+		
+		return result;
 	}
 
 }

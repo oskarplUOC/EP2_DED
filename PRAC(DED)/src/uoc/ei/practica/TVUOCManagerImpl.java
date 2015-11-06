@@ -20,30 +20,14 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		this.channels = new Vector<String, Channel>(C, Channel.COMP);
 		
-		this.topRating = null;
-		
+		this.topRating = null;		
 	}
 	
 	@Override
 	public void addUser(String idUser, String email, String password) throws EIException {
 		
-		User user = this.users.getIdentifiedObject(idUser);  
-		 
-		if (user != null) {
-					
-			user.setEmail(email);
-			user.setPassword(password);
-		 }
-		
-		 else {
-			 
-			 user = new User(idUser, email, password);
-			 this.users.afegirAlPrincipi(user);
-						 
-		 }
-		
-		 /*Posicio<User> posicio = null;
-		 User user1 = new User(idUser, email, password);
+		 Posicio<User> posicio = null;
+		 User user = new User(idUser, email, password);
 	     boolean found = false;
 	      
 	     for (Recorregut<User> it = users.posicions(); it.hiHaSeguent(); ){
@@ -51,16 +35,16 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	    	 posicio = it.seguent();
 	         User userUpdate = (User)posicio.getElem();
 	         
-	         if(userUpdate.getIdUser().equals(user1.getIdUser())){
+	         if(userUpdate.identifier.equals(user.identifier)){
 	            
-	        	this.users.reemplacar(posicio, user1);
+	        	this.users.reemplacar(posicio, user);
 	            found = true;
 	         }
 	      }
 	      
 	      if(!found) 
 	    	  
-	    	  this.users.afegirAlPrincipi(user1);*/
+	    	  this.users.afegirAlPrincipi(user);
 	}
 		
 	@Override
@@ -90,7 +74,10 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		program.incActivityProgram();
 		
-			
+		/*5. afegeixes al User la vista a partir del Program*/
+		
+		/*6. actualitzes tot el referent al top10*/
+		
 	}
 
 	@Override
