@@ -14,25 +14,13 @@ public class User extends IdentifiedObject {
 	
 	public User(String idUser, String email, String password) {
 		
-		this.idUser = idUser;
+		super(idUser);
 		this.email = email;
 		this.password = password;
 		this.viewsUser = new LlistaEncadenada<View>();
 		
 	}	
 	
-	public String toString() {
-		
-		StringBuffer sb = new StringBuffer();
-		
-		sb.append(this.idUser).append(" ");
-		sb.append(this.email).append(" ");
-		sb.append(this.password).append(" ").append(Messages.LS);
-		
-		return sb.toString();
-		
-	}
-				
 	public String getIdUser() {
 		
 		return this.idUser;

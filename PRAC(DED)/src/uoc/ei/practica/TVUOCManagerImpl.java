@@ -27,7 +27,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public void addUser(String idUser, String email, String password) throws EIException {
 		
-		/*User user = this.users.getIdentifiedObject(idUser);  
+		User user = this.users.getIdentifiedObject(idUser);  
 		 
 		if (user != null) {
 					
@@ -40,9 +40,9 @@ public class TVUOCManagerImpl implements TVUOCManager {
 			 user = new User(idUser, email, password);
 			 this.users.afegirAlPrincipi(user);
 						 
-		 }*/
+		 }
 		
-		 Posicio<User> posicio = null;
+		 /*Posicio<User> posicio = null;
 		 User user1 = new User(idUser, email, password);
 	     boolean found = false;
 	      
@@ -60,7 +60,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	      
 	      if(!found) 
 	    	  
-	    	  this.users.afegirAlPrincipi(user1);
+	    	  this.users.afegirAlPrincipi(user1);*/
 	}
 		
 	@Override
@@ -82,22 +82,15 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public void registerView(String idChannel, String idProgram, String idUser, Date dateTime) throws EIException {
 		
-		/*1. obtens un User a partir de idUser, i si aquest és null, llança excepció.
-		User user = this.users.getIdentifiedObject(idUser, Messages.USER_NOT_FOUND);*/
+		User user = this.users.getIdentifiedObject(idUser, Messages.USER_NOT_FOUND);
 		
-		/*2. obtens un Channel a partir de idChanel, i si aquest és null, llança excepció.*/
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		
-		/* 3. obtens un Program a partir de idProgram, i si aquest és null, llança excepció.*/
 		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram, Messages.PROGRAM_NOT_FOUND);
 		
-		/* 4. augmenta el número de vistes del Program*/
-		View view = new View (idChannel, idProgram, idUser, dateTime);
+		program.incActivityProgram();
 		
-		
-		/*5. afegeixes al User la vista a partir del Program*/
-		/*6. actualitzes tot el referent al top10 */
-		
+			
 	}
 
 	@Override

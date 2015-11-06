@@ -188,7 +188,7 @@ ERROR: Program not found
 
 #ERROR
 registerView(CH1, P11, UX, 26-10-2015 20:00:00)
-void
+ERROR: User not found
 
 registerView(CH1, P11, U1, 26-10-2015 20:00:00)
 void
@@ -290,19 +290,19 @@ rateProgram(CH2, P23, 2)
 void
 
 programs(CH1)
-P11, Discovering the work of Isaac Newton, description1 views(0) rating(0.0) 
+P11, Discovering the work of Isaac Newton, description1 views(4) rating(0.0) 
 
-P12, The Last Magician, description2 views(0) rating(0.0) 
+P12, The Last Magician, description2 views(2) rating(0.0) 
 
-P13, Newton's Third Law, description3 views(0) rating(0.0) 
+P13, Newton's Third Law, description3 views(5) rating(0.0) 
 
 
 programs(CH2)
-P21, Fundamental ideas in chemistry, description1 views(0) rating(0.0) 
+P21, Fundamental ideas in chemistry, description1 views(2) rating(0.0) 
 
-P22, The mole, description2 views(0) rating(0.0) 
+P22, The mole, description2 views(1) rating(0.0) 
 
-P23, Chemistry for the Biosciences, description3 views(0) rating(0.0) 
+P23, Chemistry for the Biosciences, description3 views(6) rating(0.0) 
 
 
 getTop10Programs()

@@ -15,8 +15,6 @@ public class Program {
 	
 	private String idChannel;
 	
-	private Llista<View> viewsProgram;
-	
 	private int activityProgram;
 	
 	private double ratingProgram;
@@ -27,8 +25,7 @@ public class Program {
 		this.name = name;
 		this.description = description;
 		this.idChannel = idChannel;
-		this.viewsProgram = new LlistaEncadenada<View>();
-	
+			
 	}
 	
 	public static Comparator<String>  COMP = new Comparator<String>() {
@@ -38,12 +35,6 @@ public class Program {
 			return arg0.compareTo(arg1);
 		}		
 	};
-	
-	public void addView(View view) {
-		
-		this.viewsProgram.afegirAlFinal(view);
-	}
-
 	
 	public String toString() {
 		
