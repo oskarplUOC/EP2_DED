@@ -6,16 +6,21 @@ public class Channel {
 	
 	public static final int PC = 100;
 	
+	public static final int TOP_10 = 10;
+	
 	private String idChannel;
 	
 	private String name;
 	
 	private String description;
 	
+	private ChannelTop10Program[] channelTop10Programs;
+		
 	private OrderedVector<String,Program> programsChannel;
 	
 	public Channel(String idChannel, String name, String description) {
 		
+		this.channelTop10Programs= new ChannelTop10Program[TOP_10];
 		this.idChannel=idChannel;
 		this.name=name;
 		this.description=description;
@@ -42,5 +47,10 @@ public class Channel {
 				
 		return sb.toString();
 	}
-	
+
+	public ChannelTop10Program[] getChannelTop10Programs() {
+		
+		return this.channelTop10Programs;
+	}
+
 }

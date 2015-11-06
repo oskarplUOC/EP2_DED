@@ -1,8 +1,10 @@
 package uoc.ei.practica;
 
 import java.util.Date;
+
 import uoc.ei.tads.Contenidor;
 import uoc.ei.tads.Iterador;
+import uoc.ei.tads.IteradorVectorImpl;
 import uoc.ei.tads.Posicio;
 import uoc.ei.tads.Recorregut;
 
@@ -11,10 +13,18 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	private IdentifiedList<User> users;
 	
 	private Vector<String, Channel> channels;
-				
+	
+	private Top10Program[] top10Programs;
+	
+	private int len;
+	
 	private Program topRating;
 	
 	public TVUOCManagerImpl() {
+		
+		this.top10Programs= new Top10Program[TOP_10];
+		
+		this.len=0;
 		
 		this.users = new IdentifiedList<User>();
 		
@@ -77,8 +87,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		View view = new View(idChannel, program, idUser, dateTime);		
 		user.addView(view);                             
 		
-		/*6. actualitzes tot el referent al top10*/
-		
+		/*6. actualitzes tot el referent al top10*/		
 	}
 
 	@Override
@@ -94,20 +103,29 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		Contenidor<View> contenidor = user.getViewsUser();
 		
-		return contenidor.elements();
-		
+		return contenidor.elements();		
 	}
 
 	@Override
 	public Iterador<Program> getTop10Programs() throws EIException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		
+		if (this.len == 0) throw new EIException(Messages.NO_PROGRAMS);
+		
+		Iterador<Program> it =  new IteradorVectorImpl(this.top10Programs,this.len,0);
 
+		return it;	
+	}
+	
 	@Override
 	public Iterador<Program> getChannelTop10Programs(String idChannel) throws EIException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
+		
+		ChannelTop10Program[] contenidor = channel.getChannelTop10Programs();   
+		
+		if (contenidor.length == 0) throw new EIException(Messages.NO_PROGRAMS);
+
+		return null;				
 	}
 
 	@Override
@@ -148,7 +166,12 @@ public class TVUOCManagerImpl implements TVUOCManager {
 
 	@Override
 	public Program program(String idChannel, String idProgram) throws EIException {
-		// TODO Auto-generated method stub
+		
+		Channel channel = this.channels.consultar(idChannel);
+		
+		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram);
+		
+		
 		return null;
 	}
 
