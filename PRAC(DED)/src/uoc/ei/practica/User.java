@@ -21,6 +21,17 @@ public class User extends IdentifiedObject {
 		
 	}	
 	
+	public String toString() {
+		
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append(this.identifier).append(" ");
+		sb.append(this.email).append(" ");
+		sb.append(this.password).append(" ").append(Messages.LS);
+		
+		return sb.toString();
+	}
+	
 	public String getIdUser() {
 		
 		return this.idUser;
