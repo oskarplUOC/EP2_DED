@@ -72,11 +72,10 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		
 		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram, Messages.PROGRAM_NOT_FOUND);
-		
 		program.incActivityProgram();
 		
-		/*5. afegeixes al User la vista a partir del Program*/ 
-		                               
+		View view = new View(idChannel, program, idUser, dateTime);		
+		user.addView(view);                             
 		
 		/*6. actualitzes tot el referent al top10*/
 		
@@ -91,10 +90,12 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public Iterador<View> getUserViews(String idUser) {
 		
-		/*User user = this.users.getIdentifiedObject(idUser);
+		User user = this.users.getIdentifiedObject(idUser);
+		
 		Contenidor<View> contenidor = user.getViewsUser();
-		return contenidor.elements();*/
-		return null;
+		
+		return contenidor.elements();
+		
 	}
 
 	@Override

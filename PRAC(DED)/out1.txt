@@ -151,27 +151,18 @@ ERROR: Channel not found
 
 programs(CH1)
 P11, Discovering the work of Isaac Newton, description1 views(0) rating(0.0) 
-
 P12, The Last Magician, description2 views(0) rating(0.0) 
-
 P13, Newton's Third Law, description3 views(0) rating(0.0) 
-
 
 programs(CH2)
 P21, Fundamental ideas in chemistry, description1 views(0) rating(0.0) 
-
 P22, The mole, description2 views(0) rating(0.0) 
-
 P23, Chemistry for the Biosciences, description3 views(0) rating(0.0) 
-
 
 programs(CH3)
 P31, Pablo Picasso paintings, description1 views(0) rating(0.0) 
-
 P32, Diego Velázquez: Las Meninas, description2 views(0) rating(0.0) 
-
 P33, Da Vinci: The Lost Treasure, description3 views(0) rating(0.0) 
-
 
 #ERROR
 programs(CH4)
@@ -237,10 +228,17 @@ registerView(CH2, P21, U7, 30-10-2015 21:00:00)
 void
 
 getUserViews(U1)
-void
+P11, Discovering the work of Isaac Newton, description1, (4)
+P12, The Last Magician, description2, (2)
+P13, Newton's Third Law, description3, (5)
+P21, Fundamental ideas in chemistry, description1, (2)
+P23, Chemistry for the Biosciences, description3, (6)
+P22, The mole, description2, (1)
 
 getUserViews(U2)
-void
+P11, Discovering the work of Isaac Newton, description1, (4)
+P12, The Last Magician, description2, (2)
+P13, Newton's Third Law, description3, (5)
 
 rateProgram(CH1, P13, 5)
 void
@@ -291,19 +289,13 @@ void
 
 programs(CH1)
 P11, Discovering the work of Isaac Newton, description1 views(4) rating(0.0) 
-
 P12, The Last Magician, description2 views(2) rating(0.0) 
-
 P13, Newton's Third Law, description3 views(5) rating(0.0) 
-
 
 programs(CH2)
 P21, Fundamental ideas in chemistry, description1 views(2) rating(0.0) 
-
 P22, The mole, description2 views(1) rating(0.0) 
-
 P23, Chemistry for the Biosciences, description3 views(6) rating(0.0) 
-
 
 getTop10Programs()
 void

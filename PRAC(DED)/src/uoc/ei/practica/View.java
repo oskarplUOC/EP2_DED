@@ -6,16 +6,16 @@ public class View {
 	
 	private String idChannel;
 	
-	private Program program;
+	private Program pr;
 	
 	private String idUser; 
 	
 	private Date startTime;
 	
-	public View(String idChannel, Program program, String idUser, Date startTime) {
+	public View(String idChannel, Program pr, String idUser, Date startTime) {
 		
 		this.idChannel = idChannel;
-		this.program = program;
+		this.pr = pr;
 		this.idUser = idUser;
 		this.startTime = startTime;
 		
@@ -28,7 +28,7 @@ public class View {
 	
 	public Program getProgram() {
 		
-		return this.program;
+		return this.pr;
 	}
 	
 	public String getIdUser() {
@@ -39,10 +39,10 @@ public class View {
 	public String toString() {
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append(this.idChannel).append(" ");
-		sb.append(this.program).append(" ");
-		sb.append(this.idUser).append(" ");
-		sb.append(this.startTime).append(Messages.LS);
+		sb.append(this.pr.getIdProgram()).append(", ");
+		sb.append(this.pr.getName()).append(", ");
+		sb.append(this.pr.getDescription()).append(", ");
+		sb.append("(").append(this.pr.getActivityProgram()).append(")");
 		
 		return sb.toString();
 		

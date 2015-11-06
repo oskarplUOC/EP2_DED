@@ -45,7 +45,7 @@ public class Program {
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append(this.idProgram).append(", ").append(this.name).append(", ");
-		sb.append(this.description).append(" ").append("views(" + this.activityProgram +") ").append("rating(" + this.rating() + ") ").append(Messages.LS);
+		sb.append(this.description).append(" ").append("views(" + this.activityProgram +") ").append("rating(" + this.rating() + ") ");
 		
 		return sb.toString();
 				
@@ -74,6 +74,21 @@ public class Program {
 		double result = (this.nRatingProgram != 0 ? this.ratingProgram/this.nRatingProgram:0);
 		
 		return result;
+	}
+
+	public String getIdProgram() {
+		
+		return this.idProgram;
+	}
+
+	public String getName() {
+		
+		return this.name;
+	}
+	
+	public String getDescription() {
+		
+		return this.description;
 	}
 
 }
