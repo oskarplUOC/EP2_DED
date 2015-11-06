@@ -50,7 +50,8 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public void addChannel(String idChannel, String name, String description) throws EIException {
 		
-		this.channels.afegir(idChannel, new Channel(idChannel, name, description));
+		Channel channel = new Channel(idChannel, name, description);
+		this.channels.afegir(idChannel, channel );
 		
 	}
 
