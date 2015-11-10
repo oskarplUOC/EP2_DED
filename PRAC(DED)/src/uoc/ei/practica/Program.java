@@ -70,11 +70,6 @@ public class Program {
 		this.nRatingProgram++;
 	}
 	
-	public int getNRatingProgram() {
-		
-		return nRatingProgram;
-	}
-
 	public double ratingProgram() {						
 		
 		double result = (this.nRatingProgram != 0 ? this.ratingProgram/this.nRatingProgram:0);
