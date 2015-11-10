@@ -27,6 +27,7 @@ public class Program {
 		this.name = name;
 		this.description = description;
 		this.idChannel = idChannel;
+		this.activityProgram = 0;
 		this.ratingProgram = 0;
 		this.nRatingProgram = 0;
 			
@@ -45,7 +46,7 @@ public class Program {
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append(this.idProgram).append(", ").append(this.name).append(", ");
-		sb.append(this.description).append(" ").append("views(" + this.activityProgram +") ").append("rating(" + this.rating() + ") ");
+		sb.append(this.description).append(" ").append("views(" + this.activityProgram +") ").append("rating(" + this.ratingProgram() + ") ");
 		
 		return sb.toString();
 				
@@ -68,8 +69,13 @@ public class Program {
 		
 		this.nRatingProgram++;
 	}
+	
+	public int getNRatingProgram() {
+		
+		return nRatingProgram;
+	}
 
-	public double rating() {						
+	public double ratingProgram() {						
 		
 		double result = (this.nRatingProgram != 0 ? this.ratingProgram/this.nRatingProgram:0);
 		

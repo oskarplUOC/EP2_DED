@@ -16,15 +16,23 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	
 	private Top10Program[] top10Programs;
 	
+	private ChannelTop10Program[] channelTop10Programs;
+	
 	private int len;
 	
-	private Program topRating;
+	private int len2;
+	
+	public Program topRating;
 	
 	public TVUOCManagerImpl() {
 		
 		this.top10Programs= new Top10Program[TOP_10];
 		
-		this.len=0;
+		this.len = 0;
+		
+		this.channelTop10Programs= new ChannelTop10Program[TOP_10];
+		
+		this.len2 = 0;
 		
 		this.users = new IdentifiedList<User>();
 		
@@ -92,7 +100,11 @@ public class TVUOCManagerImpl implements TVUOCManager {
 
 	@Override
 	public void rateProgram(String idChannel, String idProgram, int rating) throws EIException {
-		// TODO Auto-generated method stub
+		
+		Channel channel = this.channels.consultar(idChannel);
+		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram);
+		
+		program.addRating(rating);
 		
 	}
 
@@ -109,23 +121,13 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public Iterador<Program> getTop10Programs() throws EIException {
 		
-		if (this.len == 0) throw new EIException(Messages.NO_PROGRAMS);
-		
-		Iterador<Program> it =  new IteradorVectorImpl(this.top10Programs,this.len,0);
-
-		return it;	
+		return null;	
 	}
 	
 	@Override
 	public Iterador<Program> getChannelTop10Programs(String idChannel) throws EIException {
 		
-		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
-		
-		ChannelTop10Program[] contenidor = channel.getChannelTop10Programs();   
-		
-		if (contenidor.length == 0) throw new EIException(Messages.NO_PROGRAMS);
-
-		return null;				
+		return null;			
 	}
 
 	@Override
@@ -171,8 +173,11 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram);
 		
+		if (channel == null) throw new EIException(Messages.CHANNEL_NOT_FOUND);
 		
-		return null;
+		if (program == null) throw new EIException(Messages.PROGRAM_NOT_FOUND);
+		
+		return program;
 	}
 
 

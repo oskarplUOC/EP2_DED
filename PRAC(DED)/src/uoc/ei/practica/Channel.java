@@ -14,13 +14,10 @@ public class Channel {
 	
 	private String description;
 	
-	private ChannelTop10Program[] channelTop10Programs;
-		
 	private OrderedVector<String,Program> programsChannel;
 	
 	public Channel(String idChannel, String name, String description) {
 		
-		this.channelTop10Programs= new ChannelTop10Program[TOP_10];
 		this.idChannel=idChannel;
 		this.name=name;
 		this.description=description;
@@ -46,11 +43,6 @@ public class Channel {
 		sb.append(this.idChannel).append(" ").append(this.name).append(" ").append(this.description).append(" ");
 				
 		return sb.toString();
-	}
-
-	public ChannelTop10Program[] getChannelTop10Programs() {
-		
-		return this.channelTop10Programs;
 	}
 
 }
