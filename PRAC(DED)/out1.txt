@@ -278,7 +278,7 @@ program(CH1, P11)
 P11, Discovering the work of Isaac Newton, description1 views(4) rating(1.8) 
 
 topRating()
-void
+ERROR: There are no programs
 
 rateProgram(CH2, P21, 4)
 void
