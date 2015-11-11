@@ -6,8 +6,6 @@ public class Channel {
 	
 	public static final int PC = 100;
 	
-	public static final int TOP_10 = 10;
-	
 	private String idChannel;
 	
 	private String name;

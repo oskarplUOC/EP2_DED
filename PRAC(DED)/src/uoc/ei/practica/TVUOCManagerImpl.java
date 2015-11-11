@@ -177,6 +177,8 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		if (program == null) throw new EIException(Messages.PROGRAM_NOT_FOUND);
 		
+		if (this.topRating == null || this.topRating.getActivityProgram() < program.getActivityProgram()) this.topRating = program;
+		
 		return program;
 	}
 

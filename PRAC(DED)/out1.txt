@@ -278,7 +278,7 @@ program(CH1, P11)
 P11, Discovering the work of Isaac Newton, description1 views(4) rating(1.8) 
 
 topRating()
-ERROR: There are no programs
+P13, Newton's Third Law, description3 views(5) rating(5.0) 
 
 rateProgram(CH2, P21, 4)
 void
