@@ -121,11 +121,17 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public Iterador<Program> getTop10Programs() throws EIException {
 		
-		return null;	
+		if (this.len==0) throw new EIException(Messages.NO_PROGRAMS);
+		
+		Iterador<Program> it =  new IteradorVectorImpl(this.top10Programs,this.len,0);
+		
+		return it;
 	}
 	
 	@Override
 	public Iterador<Program> getChannelTop10Programs(String idChannel) throws EIException {
+		
+		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		
 		return null;			
 	}

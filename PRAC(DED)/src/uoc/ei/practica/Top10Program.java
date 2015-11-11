@@ -5,10 +5,15 @@ import uoc.ei.tads.Iterador;
 
 public class Top10Program<V> implements ContenidorAfitat<V> {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	
+	private Program pr2;
+	
+	public Top10Program(Program pr2) {
+		
+		this.pr2 = pr2;
+		
+	}
 
 	@Override
 	public Iterador elements() {
@@ -32,6 +37,19 @@ public class Top10Program<V> implements ContenidorAfitat<V> {
 	public boolean estaPle() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public String toString() {
+		
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.pr2.getIdProgram()).append(", ");
+		sb.append(this.pr2.getName()).append(", ");
+		sb.append(this.pr2.getDescription()).append(", ");
+		sb.append("(").append(this.pr2.getActivityProgram()).append(")");
+		sb.append("(").append(this.pr2.getRatingProgram()).append(")");
+		
+		return sb.toString();
+		
 	}
 	
 }
