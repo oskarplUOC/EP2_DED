@@ -3,14 +3,15 @@ package uoc.ei.practica;
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
 
-public class Top10Program<V> implements ContenidorAfitat<V> {
+
+public class Top10Program<E> implements ContenidorAfitat<E> {
 
 	private static final long serialVersionUID = 1L;
 	
 	private Program pr2;
 	
 	public Top10Program(Program pr2) {
-		
+
 		this.pr2 = pr2;
 		
 	}
