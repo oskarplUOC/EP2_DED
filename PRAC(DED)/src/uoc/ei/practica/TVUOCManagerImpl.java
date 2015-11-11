@@ -16,11 +16,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	
 	private Top10Program[] top10Programs;
 	
-	private ChannelTop10Program[] channelTop10Programs;
-	
 	private int len;
-	
-	private int len2;
 	
 	public Program topRating;
 	
@@ -29,10 +25,6 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		this.top10Programs= new Top10Program[TOP_10];
 		
 		this.len = 0;
-		
-		this.channelTop10Programs= new ChannelTop10Program[TOP_10];
-		
-		this.len2 = 0;
 		
 		this.users = new IdentifiedList<User>();
 		

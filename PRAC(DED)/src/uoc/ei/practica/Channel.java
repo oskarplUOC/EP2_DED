@@ -6,6 +6,8 @@ public class Channel {
 	
 	public static final int PC = 100;
 	
+	public static final int TOP_10 = 10;
+	
 	private String idChannel;
 	
 	private String name;
@@ -14,12 +16,15 @@ public class Channel {
 	
 	private OrderedVector<String,Program> programsChannel;
 	
+	private ChannelTop10Program[] channelTop10Programs;
+	
 	public Channel(String idChannel, String name, String description) {
 		
 		this.idChannel=idChannel;
 		this.name=name;
 		this.description=description;
-		this.programsChannel = new OrderedVector<String, Program>(PC, Program.COMP);				
+		this.programsChannel = new OrderedVector<String, Program>(PC, Program.COMP);
+		this.channelTop10Programs= new ChannelTop10Program[TOP_10];
 	} 
 	
 	public static Comparator<String>  COMP = new Comparator<String>() {
