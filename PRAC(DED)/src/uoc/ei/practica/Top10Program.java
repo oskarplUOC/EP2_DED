@@ -13,14 +13,11 @@ public class Top10Program<V> implements ContenidorAfitat<V> {
 	
 	private Program pr2;
 	
-	private Contenidor<Top10Program> programs;
-	
-	private Top10Program[] top10Programs;
+	private ContenidorAfitat<Top10Program> programs;
 	
 	public Top10Program(Program pr2) {
 
 		this.pr2 = pr2;
-		this.top10Programs= new Top10Program[TOP_10];
 	}
 
 	@Override
@@ -34,7 +31,7 @@ public class Top10Program<V> implements ContenidorAfitat<V> {
 	@Override
 	public boolean estaBuit() {
 		
-		if (programs.estaBuit()) {
+		if (this.programs.estaBuit()) {
 			
 			return true;			
 		}
@@ -51,7 +48,7 @@ public class Top10Program<V> implements ContenidorAfitat<V> {
 	@Override
 	public boolean estaPle() {
 		
-		if (top10Programs.length == 10) {
+		if (this.programs.estaPle()) {
 			
 			return true;
 		}
