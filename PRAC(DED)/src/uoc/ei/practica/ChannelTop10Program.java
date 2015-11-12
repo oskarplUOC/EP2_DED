@@ -9,13 +9,9 @@ private static final long serialVersionUID = 1L;
 	
 	private Program pr2;
 	
-	private String idChannel;
-	
 	public ChannelTop10Program(Program pr2, String idChannel) {
 
 		this.pr2 = pr2;
-		this.idChannel = idChannel;
-		
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package uoc.ei.practica;
 import uoc.ei.tads.Contenidor;
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
+import uoc.ei.tads.LlistaEncadenada;
 
 
 public class Top10Program<V> implements ContenidorAfitat<V> {
@@ -13,7 +14,7 @@ public class Top10Program<V> implements ContenidorAfitat<V> {
 	
 	private Program pr2;
 	
-	private ContenidorAfitat<Top10Program> programs;
+	private ContenidorAfitat<Top10Program> top10Programs;
 	
 	public Top10Program(Program pr2) {
 
@@ -23,15 +24,15 @@ public class Top10Program<V> implements ContenidorAfitat<V> {
 	@Override
 	public Iterador elements() {
 		
-		if (this.programs.estaBuit()); 
+		if (this.top10Programs.estaBuit()); 
 			
-		return programs.elements();			
+		return top10Programs.elements();			
 	}
 
 	@Override
 	public boolean estaBuit() {
 		
-		if (this.programs.estaBuit()) {
+		if (this.top10Programs.estaBuit()) {
 			
 			return true;			
 		}
@@ -42,13 +43,13 @@ public class Top10Program<V> implements ContenidorAfitat<V> {
 	@Override
 	public int nombreElems() {
 		
-		return this.programs.nombreElems();
+		return this.top10Programs.nombreElems();
 	}
 
 	@Override
 	public boolean estaPle() {
 		
-		if (this.programs.estaPle()) {
+		if (this.top10Programs.estaPle()) {
 			
 			return true;
 		}

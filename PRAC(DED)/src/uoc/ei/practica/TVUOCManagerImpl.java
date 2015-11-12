@@ -16,15 +16,11 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	
 	private Top10Program[] top10Programs;
 	
-	private int len;
-	
 	public Program topRating;
 	
 	public TVUOCManagerImpl() {
 		
 		this.top10Programs= new Top10Program[TOP_10];
-		
-		this.len = 0;
 		
 		this.users = new IdentifiedList<User>();
 		
@@ -113,11 +109,12 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public Iterador<Program> getTop10Programs() throws EIException {
 		
-		if (this.len == 0) throw new EIException(Messages.NO_PROGRAMS);
+		if (this.top10Programs.length == 0) throw new EIException(Messages.NO_PROGRAMS);
 		
-		Iterador<Program> it =  new IteradorVectorImpl(this.top10Programs,this.len, 0);
+		Iterador<Program> it =  new IteradorVectorImpl(this.top10Programs,this.top10Programs.length, 0);
 		
 		return it;
+		
 	}
 	
 	@Override
