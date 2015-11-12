@@ -113,9 +113,9 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public Iterador<Program> getTop10Programs() throws EIException {
 		
-		if (this.len==0) throw new EIException(Messages.NO_PROGRAMS);
+		if (this.len == 0) throw new EIException(Messages.NO_PROGRAMS);
 		
-		Iterador<Program> it =  new IteradorVectorImpl(this.top10Programs,this.len,0);
+		Iterador<Program> it =  new IteradorVectorImpl(this.top10Programs,this.len, 0);
 		
 		return it;
 	}
@@ -179,6 +179,5 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		return program;
 	}
-
 
 }
