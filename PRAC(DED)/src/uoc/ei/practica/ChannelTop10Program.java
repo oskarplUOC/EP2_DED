@@ -9,7 +9,7 @@ private static final long serialVersionUID = 1L;
 	
 	private Program pr2;
 	
-	public ChannelTop10Program(Program pr2, String idChannel) {
+	public ChannelTop10Program(Program pr2) {
 
 		this.pr2 = pr2;
 	}

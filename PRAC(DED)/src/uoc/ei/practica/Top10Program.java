@@ -1,16 +1,12 @@
 package uoc.ei.practica;
 
-import uoc.ei.tads.Contenidor;
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
-import uoc.ei.tads.LlistaEncadenada;
 
 
 public class Top10Program<V> implements ContenidorAfitat<V> {
 
 	private static final long serialVersionUID = 1L;
-	
-	public static final int TOP_10 = 10;
 	
 	private Program pr2;
 	
@@ -70,7 +66,6 @@ public class Top10Program<V> implements ContenidorAfitat<V> {
 		sb.append("(").append(this.pr2.getRatingProgram()).append(")");
 		
 		return sb.toString();
-		
 	}
-	
+
 }

@@ -122,7 +122,11 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		
-		return null;			
+		ChannelTop10Program[] channelTop10 = channel.getChannelTop10Program(); 
+		
+		if (channelTop10.length == 0) throw new EIException(Messages.NO_PROGRAMS);
+		
+		return null;		
 	}
 
 	@Override
