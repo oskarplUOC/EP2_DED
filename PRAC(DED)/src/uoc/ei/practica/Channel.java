@@ -35,13 +35,6 @@ public class Channel {
 		}		
 	};
 	
-	
-	public ChannelTop10Program[] getChannelTop10Program() {
-		
-		return this.channelTop10Programs;
-		
-	}
-	
 	public OrderedVector<String,Program> getProgramsChannel() {
 		
 		return this.programsChannel;

@@ -4,17 +4,17 @@ import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
 
 
-public class Top10Program<V> implements ContenidorAfitat<V> {
+public class Top10Program<Program> implements ContenidorAfitat<Program> {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Program pr2;
+	private ContenidorAfitat<Program> top10Programs;
 	
-	private ContenidorAfitat<Top10Program> top10Programs;
+	private View viewTop10;
 	
-	public Top10Program(Program pr2) {
+	public Top10Program(View viewTop10) {
 
-		this.pr2 = pr2;
+		this.viewTop10 = viewTop10;
 	}
 
 	@Override
@@ -59,11 +59,12 @@ public class Top10Program<V> implements ContenidorAfitat<V> {
 	public String toString() {
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append(this.pr2.getIdProgram()).append(", ");
-		sb.append(this.pr2.getName()).append(", ");
-		sb.append(this.pr2.getDescription()).append(", ");
-		sb.append("(").append(this.pr2.getActivityProgram()).append(")");
-		sb.append("(").append(this.pr2.getRatingProgram()).append(")");
+		
+		sb.append(this.viewTop10.getProgram().getIdProgram()).append(", ");
+		sb.append(this.viewTop10.getProgram().getName()).append(", ");
+		sb.append(this.viewTop10.getProgram().getDescription()).append(", ");
+		sb.append("(").append(this.viewTop10.getProgram().getActivityProgram()).append(")");
+		sb.append("(").append(this.viewTop10.getProgram().getRatingProgram()).append(")");
 		
 		return sb.toString();
 	}

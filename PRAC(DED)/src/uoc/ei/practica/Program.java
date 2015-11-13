@@ -2,9 +2,6 @@ package uoc.ei.practica;
 
 import java.util.Comparator;
 
-import uoc.ei.tads.Llista;
-import uoc.ei.tads.LlistaEncadenada;
-
 public class Program {
 	
 	private String idProgram;
@@ -91,6 +88,11 @@ public class Program {
 	public String getDescription() {
 		
 		return this.description;
+	}
+
+	public String getIdChannel() {
+		
+		return idChannel;
 	}
 
 }

@@ -7,11 +7,9 @@ public class ChannelTop10Program<E> implements ContenidorAfitat<E>{
 	
 private static final long serialVersionUID = 1L;
 	
-	private Program pr2;
-	
-	public ChannelTop10Program(Program pr2) {
+	public ChannelTop10Program() {
 
-		this.pr2 = pr2;
+		
 	}
 
 	@Override
@@ -41,11 +39,12 @@ private static final long serialVersionUID = 1L;
 	public String toString() {
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append(this.pr2.getIdProgram()).append(", ");
+		
+		/*sb.append(this.pr2.getIdProgram()).append(", ");
 		sb.append(this.pr2.getName()).append(", ");
 		sb.append(this.pr2.getDescription()).append(", ");
 		sb.append("(").append(this.pr2.getActivityProgram()).append(")");
-		sb.append("(").append(this.pr2.getRatingProgram()).append(")");
+		sb.append("(").append(this.pr2.getRatingProgram()).append(")");*/
 		
 		return sb.toString();
 		

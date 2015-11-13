@@ -11,7 +11,7 @@ import uoc.ei.tads.Iterador;
  * TAD que implementa un vector ordenat. L'ordenació del vector
  * es determina amb el comparador.
  */
-public class Vector<K,V> extends DiccionariVectorImpl<K,V> implements ContenidorAfitat<V>{
+public class NormalVector<K,V> extends DiccionariVectorImpl<K,V> implements ContenidorAfitat<V>{
 	/**
 	 * 
 	 */
@@ -24,7 +24,7 @@ public class Vector<K,V> extends DiccionariVectorImpl<K,V> implements Contenidor
 	private Comparator<K> comparator;
 
 
-	public Vector(int max, Comparator<K> comparator) {
+	public NormalVector(int max, Comparator<K> comparator) {
 		super(max);
 		this.comparator = comparator;
 	}
@@ -148,7 +148,7 @@ public class Vector<K,V> extends DiccionariVectorImpl<K,V> implements Contenidor
 			}
 			
 		};
-		Vector<String, Integer> v = new Vector<String,Integer>(10, cmp);
+		NormalVector<String, Integer> v = new NormalVector<String,Integer>(10, cmp);
 		
 		v.afegir("09", 9);
 		v.afegir("07", 7);

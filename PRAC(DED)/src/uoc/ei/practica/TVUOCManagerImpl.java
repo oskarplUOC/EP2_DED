@@ -12,7 +12,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	
 	private IdentifiedList<User> users;
 	
-	private Vector<String, Channel> channels;
+	private NormalVector<String, Channel> channels;
 	
 	private Top10Program[] top10Programs;
 	
@@ -24,7 +24,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		this.users = new IdentifiedList<User>();
 		
-		this.channels = new Vector<String, Channel>(C, Channel.COMP);
+		this.channels = new NormalVector<String, Channel>(C, Channel.COMP);
 		
 		this.topRating = null;		
 	}
@@ -121,10 +121,6 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	public Iterador<Program> getChannelTop10Programs(String idChannel) throws EIException {
 		
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
-		
-		ChannelTop10Program[] channelTop10 = channel.getChannelTop10Program(); 
-		
-		if (channelTop10.length == 0) throw new EIException(Messages.NO_PROGRAMS);
 		
 		return null;		
 	}
