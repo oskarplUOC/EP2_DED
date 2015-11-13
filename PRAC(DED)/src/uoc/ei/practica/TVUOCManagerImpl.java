@@ -24,7 +24,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		this.channels = new NormalVector<String, Channel>(C, Channel.COMP);
 		
-		this.top10Programs = new ArrayTop<Program>();
+		this.top10Programs = new ArrayTop<Program>(TOP_10);
 		
 		this.topRating = null;		
 	}

@@ -24,6 +24,7 @@ public class Channel {
 		this.name=name;
 		this.description=description;
 		this.programsChannel = new OrderedVector<String, Program>(PC, Program.COMP);
+		this.channelTop10Programs = new ArrayTop<Program>(TOP_10);
 	} 
 	
 	public static Comparator<String>  COMP = new Comparator<String>() {

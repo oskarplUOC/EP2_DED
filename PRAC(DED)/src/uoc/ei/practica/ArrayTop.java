@@ -8,51 +8,34 @@ public class ArrayTop<Program> implements ContenidorAfitat<Program> {
 
 	private static final long serialVersionUID = 1L;
 	
-	String [] top10 = new String[TVUOCManager.TOP_10];
+	Integer [] top10 = new Integer[TVUOCManager.TOP_10];
 	
-	private ContenidorAfitat<Program> top10Programs;
-	
-	public ArrayTop() {
+	public ArrayTop(Integer top10) {
 
 	}
 
 	@Override
 	public Iterador elements() {
 		
-		if (this.top10Programs.estaBuit()); 
-			
-		return top10Programs.elements();			
+		return null;	
 	}
 
 	@Override
 	public boolean estaBuit() {
 		
-		if (this.top10Programs.estaBuit()) {
-			
-			return true;			
-		}
-		
-		return false;		
+		return true;		
 	}
 
 	@Override
 	public int nombreElems() {
 		
-		return this.top10Programs.nombreElems();
+		return 0;
 	}
 
 	@Override
 	public boolean estaPle() {
 		
-		if (this.top10Programs.estaPle()) {
-			
-			return true;
-		}
-		
-		else {
-			
-			return false;
-		}
+		return true;
 	}
-	
+		
 }
