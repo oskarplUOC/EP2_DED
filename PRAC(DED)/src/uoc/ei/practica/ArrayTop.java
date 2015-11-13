@@ -1,7 +1,5 @@
 package uoc.ei.practica;
 
-import java.util.Comparator;
-
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
 
@@ -10,17 +8,12 @@ public class ArrayTop<Program> implements ContenidorAfitat<Program> {
 
 	private static final long serialVersionUID = 1L;
 	
-	public ArrayTop() {
-		
-	}
-		
+	String [] top10 = new String[TVUOCManager.TOP_10];
+	
 	private ContenidorAfitat<Program> top10Programs;
 	
-	private View viewTop10;
-	
-	public ArrayTop(View viewTop10) {
+	public ArrayTop() {
 
-		this.viewTop10 = viewTop10;
 	}
 
 	@Override
@@ -62,17 +55,4 @@ public class ArrayTop<Program> implements ContenidorAfitat<Program> {
 		}
 	}
 	
-	public String toString() {
-		
-		StringBuffer sb = new StringBuffer();
-		
-		sb.append(this.viewTop10.getProgram().getIdProgram()).append(", ");
-		sb.append(this.viewTop10.getProgram().getName()).append(", ");
-		sb.append(this.viewTop10.getProgram().getDescription()).append(", ");
-		sb.append("(").append(this.viewTop10.getProgram().getActivityProgram()).append(")");
-		sb.append("(").append(this.viewTop10.getProgram().getRatingProgram()).append(")");
-		
-		return sb.toString();
-	}
-
 }

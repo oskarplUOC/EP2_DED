@@ -111,9 +111,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		if (this.top10Programs.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
 		
-		return top10Programs.elements();
-		
-				
+		return top10Programs.elements();				
 			
 	}
 	
