@@ -298,6 +298,3 @@ P22, The mole, description2 views(1) rating(1.0)
 P23, Chemistry for the Biosciences, description3 views(6) rating(2.0) 
 
 getTop10Programs()
-
-getChannelTop10Programs(CH2)
-void

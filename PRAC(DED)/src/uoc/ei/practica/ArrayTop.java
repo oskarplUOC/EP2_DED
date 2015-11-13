@@ -1,18 +1,24 @@
 package uoc.ei.practica;
 
+import java.util.Comparator;
+
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
 
 
-public class Top10Program<Program> implements ContenidorAfitat<Program> {
+public class ArrayTop<Program> implements ContenidorAfitat<Program> {
 
 	private static final long serialVersionUID = 1L;
 	
+	public ArrayTop() {
+		
+	}
+		
 	private ContenidorAfitat<Program> top10Programs;
 	
 	private View viewTop10;
 	
-	public Top10Program(View viewTop10) {
+	public ArrayTop(View viewTop10) {
 
 		this.viewTop10 = viewTop10;
 	}

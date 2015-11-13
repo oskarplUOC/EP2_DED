@@ -14,17 +14,17 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	
 	private NormalVector<String, Channel> channels;
 	
-	private Top10Program[] top10Programs;
+	private ArrayTop<Program> top10Programs;
 	
 	public Program topRating;
 	
 	public TVUOCManagerImpl() {
 		
-		this.top10Programs= new Top10Program[TOP_10];
-		
 		this.users = new IdentifiedList<User>();
 		
 		this.channels = new NormalVector<String, Channel>(C, Channel.COMP);
+		
+		this.top10Programs = new ArrayTop<Program>();
 		
 		this.topRating = null;		
 	}
@@ -109,12 +109,12 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public Iterador<Program> getTop10Programs() throws EIException {
 		
-		if (this.top10Programs.length == 0) throw new EIException(Messages.NO_PROGRAMS);
+		if (this.top10Programs.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
 		
-		Iterador<Program> it =  new IteradorVectorImpl(this.top10Programs,this.top10Programs.length, 0);
+		return top10Programs.elements();
 		
-		return it;
-		
+				
+			
 	}
 	
 	@Override
