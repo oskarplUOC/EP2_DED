@@ -18,6 +18,8 @@ public class Program {
 	
 	private int nRatingProgram;
 	
+	private int rating;
+	
 	public Program(String idProgram, String name, String description, String idChannel) {
 		
 		this.idProgram = idProgram;
