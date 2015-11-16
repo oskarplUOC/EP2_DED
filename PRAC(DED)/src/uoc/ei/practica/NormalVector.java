@@ -27,6 +27,7 @@ public class NormalVector<K,V> extends DiccionariVectorImpl<K,V> implements Cont
 	public NormalVector(int max, Comparator<K> comparator) {
 		super(max);
 		this.comparator = comparator;
+		
 	}
 
 

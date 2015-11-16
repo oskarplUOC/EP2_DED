@@ -13,7 +13,7 @@ import uoc.ei.tads.Posicio;
  * TAD que implementa un vector ordenat. L'ordenació del vector
  * es determina amb el comparador.
  */
-public class OrderedVector<K,V> extends DiccionariVectorImpl<K,V> implements ContenidorAfitat<V>{
+public class OrderedVectorProgramChannel<K,V> extends DiccionariVectorImpl<K,V> implements ContenidorAfitat<V>{
 	/**
 	 * 
 	 */
@@ -26,7 +26,7 @@ public class OrderedVector<K,V> extends DiccionariVectorImpl<K,V> implements Con
 	private Comparator<K> comparator;
 
 
-	public OrderedVector(int max, Comparator<K> comparator) {
+	public OrderedVectorProgramChannel(int max, Comparator<K> comparator) {
 		super(max);
 		this.comparator = comparator;
 	}
@@ -150,7 +150,7 @@ public class OrderedVector<K,V> extends DiccionariVectorImpl<K,V> implements Con
 			}
 			
 		};
-		OrderedVector<String, Integer> v = new OrderedVector<String,Integer>(10, cmp);
+		OrderedVectorProgramChannel<String, Integer> v = new OrderedVectorProgramChannel<String,Integer>(10, cmp);
 		
 		v.afegir("09", 9);
 		v.afegir("07", 7);

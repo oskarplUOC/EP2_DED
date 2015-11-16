@@ -14,28 +14,25 @@ public class Channel {
 	
 	private String description;
 	
-	private OrderedVector<String,Program> programsChannel;
-	
-	private ArrayTop<Program> channelTop10Programs;
+	private OrderedVectorProgramChannel<String,Program> programsChannel;
 	
 	public Channel(String idChannel, String name, String description) {
 		
 		this.idChannel=idChannel;
 		this.name=name;
 		this.description=description;
-		this.programsChannel = new OrderedVector<String, Program>(PC, Program.COMP);
-		this.channelTop10Programs = new ArrayTop<Program>(TOP_10);
+		this.programsChannel = new OrderedVectorProgramChannel<String, Program>(PC, Program.COMP);
 	} 
 	
 	public static Comparator<String>  COMP = new Comparator<String>() {
 		
-		public int compare(String arg0, String arg1) {
+		public int compare(String idChannel0, String idChannel1) {
 			
-			return arg0.compareTo(arg1);
+			return idChannel0.compareTo(idChannel1);
 		}		
 	};
 	
-	public OrderedVector<String,Program> getProgramsChannel() {
+	public OrderedVectorProgramChannel<String,Program> getProgramsChannel() {
 		
 		return this.programsChannel;
 	}

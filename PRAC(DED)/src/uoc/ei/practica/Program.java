@@ -27,7 +27,6 @@ public class Program {
 		this.activityProgram = 0;
 		this.ratingProgram = 0;
 		this.nRatingProgram = 0;
-			
 	}
 	
 	public static Comparator<String>  COMP = new Comparator<String>() {
