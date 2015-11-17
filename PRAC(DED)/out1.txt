@@ -94,7 +94,6 @@ ERROR: There are no channels
 
 addChannel(CH1, Physics, description1)
 void
-
 addChannel(CH2, Chemistry, description2)
 void
 addChannel(CH3, Maths, description3)
@@ -104,6 +103,10 @@ void
 addChannel(CH5, Computer & Science, description5)
 void
 addChannel(CH6, Physics, description6)
+void
+addChannel(CH6, Physics, description6)
+void
+addChannel(CH5, Computer & Science, description5)
 void
 
 channels()
@@ -227,6 +230,14 @@ void
 registerView(CH2, P21, U7, 30-10-2015 21:00:00)
 void
 
+registerView(CH15, P21, U7, 30-10-2015 21:00:00)
+ERROR: Channel not found
+registerView(CH2, P70, U7, 30-10-2015 21:00:00)
+ERROR: Program not found
+registerView(CH2, P21, U23, 30-10-2015 21:00:00)
+ERROR: User not found
+
+
 getUserViews(U1)
 P11, Discovering the work of Isaac Newton, description1, (4)
 P12, The Last Magician, description2, (2)
@@ -240,45 +251,49 @@ P11, Discovering the work of Isaac Newton, description1, (4)
 P12, The Last Magician, description2, (2)
 P13, Newton's Third Law, description3, (5)
 
-rateProgram(CH1, P13, 5)
+rateProgram(CH1, P13, 1)
 void
-rateProgram(CH1, P13, 5)
+rateProgram(CH1, P13, 1)
 void
-rateProgram(CH1, P13, 5)
+rateProgram(CH1, P13, 1)
 void
-rateProgram(CH1, P13, 5)
+rateProgram(CH1, P13, 1)
 void
 program(CH1, P13)
-P13, Newton's Third Law, description3 views(5) rating(5.0) 
+P13, Newton's Third Law, description3 views(5) rating(1.0) 
 
 rateProgram(CH1, P11, 5)
 void
-
 program(CH1, P11)
 P11, Discovering the work of Isaac Newton, description1 views(4) rating(5.0) 
 
 rateProgram(CH1, P11, 0)
-void
+ERROR: Rating incorrect. The rating value must be between 1 and 5
 program(CH1, P11)
-P11, Discovering the work of Isaac Newton, description1 views(4) rating(2.5) 
+P11, Discovering the work of Isaac Newton, description1 views(4) rating(5.0) 
 
 rateProgram(CH1, P11, 1)
 void
 program(CH1, P11)
-P11, Discovering the work of Isaac Newton, description1 views(4) rating(2.0) 
+P11, Discovering the work of Isaac Newton, description1 views(4) rating(3.0) 
 
 rateProgram(CH1, P11, 1)
 void
 program(CH1, P11)
-P11, Discovering the work of Isaac Newton, description1 views(4) rating(1.75) 
+P11, Discovering the work of Isaac Newton, description1 views(4) rating(2.3333333333333335) 
 
 rateProgram(CH1, P11, 2)
 void
 program(CH1, P11)
-P11, Discovering the work of Isaac Newton, description1 views(4) rating(1.8) 
+P11, Discovering the work of Isaac Newton, description1 views(4) rating(2.25) 
+
+rateProgram(CH1, P11, 6)
+ERROR: Rating incorrect. The rating value must be between 1 and 5
+program(CH1, P11)
+P11, Discovering the work of Isaac Newton, description1 views(4) rating(2.25) 
 
 topRating()
-P13, Newton's Third Law, description3 views(5) rating(5.0) 
+P11, Discovering the work of Isaac Newton, description1 views(4) rating(2.25) 
 
 rateProgram(CH2, P21, 4)
 void
@@ -288,9 +303,9 @@ rateProgram(CH2, P23, 2)
 void
 
 programs(CH1)
-P11, Discovering the work of Isaac Newton, description1 views(4) rating(1.8) 
+P11, Discovering the work of Isaac Newton, description1 views(4) rating(2.25) 
 P12, The Last Magician, description2 views(2) rating(0.0) 
-P13, Newton's Third Law, description3 views(5) rating(5.0) 
+P13, Newton's Third Law, description3 views(5) rating(1.0) 
 
 programs(CH2)
 P21, Fundamental ideas in chemistry, description1 views(2) rating(4.0) 
@@ -298,3 +313,15 @@ P22, The mole, description2 views(1) rating(1.0)
 P23, Chemistry for the Biosciences, description3 views(6) rating(2.0) 
 
 getTop10Programs()
+P11, Discovering the work of Isaac Newton, description1 views(4) rating(2.25) 
+P21, Fundamental ideas in chemistry, description1 views(2) rating(4.0) 
+P22, The mole, description2 views(1) rating(1.0) 
+P23, Chemistry for the Biosciences, description3 views(6) rating(2.0) 
+P21, Fundamental ideas in chemistry, description1 views(2) rating(4.0) 
+P22, The mole, description2 views(1) rating(1.0) 
+P21, Fundamental ideas in chemistry, description1 views(2) rating(4.0) 
+
+getChannelTop10Programs(CH2)
+P21, Fundamental ideas in chemistry, description1 views(2) rating(4.0) 
+P23, Chemistry for the Biosciences, description3 views(6) rating(2.0) 
+P22, The mole, description2 views(1) rating(1.0) 

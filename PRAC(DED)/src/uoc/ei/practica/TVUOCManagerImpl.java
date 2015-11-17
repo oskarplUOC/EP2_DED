@@ -66,7 +66,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		Channel channel = this.channels.consultar(idChannel);
         Program program = new Program(id, name, description, idChannel);
-        	
+        
         this.channels.consultar(idChannel).getProgramsChannel().afegir(id, program); 
 	}
 
@@ -78,22 +78,43 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		
 		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram, Messages.PROGRAM_NOT_FOUND);
-		program.incActivityProgram();
 		
 		View view = new View(idChannel, program, idUser, dateTime);		
-		user.addView(view);                             
 		
-		/*6. actualitzes tot el referent al top10*/		
+		program.incActivityProgram();
+				
+		user.addView(view); 
+		
+		updateTop10(idProgram, program);
+		
+		channel.updateTop10 (idProgram,program);
+		
+		
+	/*actualitzar tot el referent als top10*/
+    
+	}		
+	
+	public void updateTop10(String idProgram, Program program) {
+			
+		this.top10Program.afegir(idProgram, program);
 	}
-
+	
 	@Override
 	public void rateProgram(String idChannel, String idProgram, int rating) throws EIException {
 		
-		Channel channel = this.channels.consultar(idChannel);
-		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram);
+		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
+		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram, Messages.PROGRAM_NOT_FOUND);
 		
-		program.addRating(rating);
+		if (rating < 1 || rating > 5) {
+			
+			throw new EIException (Messages.RATING_NOT_CORRECT);
+			
+		}
 		
+		else {
+		
+			program.addRating(rating);
+		}
 	}
 
 	@Override
@@ -109,7 +130,9 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public Iterador<Program> getTop10Programs() throws EIException {
 					
-		return null;
+		if (this.top10Program.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
+		
+		return this.top10Program.elements();
 		
 	}
 	
@@ -118,10 +141,11 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		
-		Contenidor<Program> contenidor =  channel.getProgramsChannel();  
+		Contenidor<Program> contenidor =  channel.getChannelTop10Program();  
 		
-		return contenidor.elements();	
-
+		return contenidor.elements();
+			
+		
 	}
 
 	@Override
@@ -153,10 +177,10 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		
-		Contenidor<Program> programsChannel = channel.getProgramsChannel();  
-		
-		if (programsChannel.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
+		Contenidor<Program> programsChannel = channel.getProgramsChannel(); 
 				
+		if (programsChannel.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
+		
 		return programsChannel.elements();
 	}
 
@@ -171,7 +195,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		if (program == null) throw new EIException(Messages.PROGRAM_NOT_FOUND);
 		
-		if (this.topRating == null || this.topRating.getActivityProgram() < program.getActivityProgram()) this.topRating = program;
+		if (this.topRating == null || this.topRating.getRatingProgram() < program.getRatingProgram()) this.topRating = program;
 		
 		return program;
 	}

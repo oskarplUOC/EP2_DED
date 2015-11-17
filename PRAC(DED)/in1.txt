@@ -35,12 +35,13 @@ users
 channels
 
 addChannel, CH1, Physics, description1	
-
 addChannel, CH2, Chemistry, description2	
 addChannel, CH3, Maths, description3
 addChannel, CH4, Arts, description4
 addChannel, CH5, Computer & Science, description5
 addChannel, CH6, Physics, description6
+addChannel, CH6, Physics, description6
+addChannel, CH5, Computer & Science, description5
 
 channels
 
@@ -111,18 +112,22 @@ registerView, CH1, P11, U8,  30-10-2015 21:00:00
 
 registerView, CH2, P21, U7,  30-10-2015 21:00:00
 
+registerView, CH15, P21, U7,  30-10-2015 21:00:00
+registerView, CH2, P70, U7,  30-10-2015 21:00:00
+registerView, CH2, P21, U23,  30-10-2015 21:00:00
+
+
 getUserViews, U1
 
 getUserViews, U2
 
-rateProgram, CH1, P13, 5
-rateProgram, CH1, P13, 5
-rateProgram, CH1, P13, 5
-rateProgram, CH1, P13, 5
+rateProgram, CH1, P13, 1
+rateProgram, CH1, P13, 1
+rateProgram, CH1, P13, 1
+rateProgram, CH1, P13, 1
 program, CH1, P13
 
 rateProgram, CH1, P11, 5
-
 program, CH1, P11
 
 rateProgram, CH1, P11, 0
@@ -135,6 +140,9 @@ rateProgram, CH1, P11, 1
 program, CH1, P11
 
 rateProgram, CH1, P11, 2
+program, CH1, P11
+
+rateProgram, CH1, P11, 6
 program, CH1, P11
 
 topRating

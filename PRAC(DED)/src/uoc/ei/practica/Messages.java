@@ -18,4 +18,6 @@ public interface Messages {
 	public static final String NO_PROGRAMS = "There are no programs";
 	public static final String PROGRAM_NOT_FOUND = "Program not found";
 	
+	public static final String RATING_NOT_CORRECT = "Rating incorrect. The rating value must be between 1 and 5";
+	
 }
