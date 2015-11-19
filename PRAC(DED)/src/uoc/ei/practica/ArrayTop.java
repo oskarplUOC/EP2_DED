@@ -3,8 +3,10 @@ package uoc.ei.practica;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+import uoc.ei.tads.Contenidor;
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
+import uoc.ei.tads.IteradorVectorImpl;
 
 
 public class ArrayTop<Program> implements ContenidorAfitat<Program> {
@@ -13,13 +15,14 @@ public class ArrayTop<Program> implements ContenidorAfitat<Program> {
 	
 	private Program[] top10;
 	
-	public static final int TOP_10 = 10;
+	public int maximSize;
 
     private int currentSize;
     
     public ArrayTop(){
         
-    	top10 = (Program[]) new Object[TOP_10];
+    	this.maximSize = 10;
+    	top10 = (Program[]) new Object[maximSize];
     }
     
     public void addLastProgram(Program program) {
@@ -30,7 +33,9 @@ public class ArrayTop<Program> implements ContenidorAfitat<Program> {
 	@Override
 	public Iterador elements() {
 		
-		return this.elements();							
+		Iterador<Program> it = new IteradorVectorImpl<Program>(this.top10,this.currentSize, 0);
+	    return it;
+								
 	}
 
 	@Override

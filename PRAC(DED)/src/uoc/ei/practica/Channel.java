@@ -55,7 +55,7 @@ public class Channel {
 
 	public void updateTop10(Program program) {
 	
-		this.channelTop10Program.addLastProgram(program);
+		/*this.channelTop10Program.addLastProgram(program);*/
 	
 	}
 

@@ -95,7 +95,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	public void updateTop10(Program program) {
 		
 		this.top10Program.addLastProgram(program);
-		
+					
 	}
 	
 	@Override
@@ -131,7 +131,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 					
 		if (this.top10Program.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
 		
-		return this.top10Program.elements();
+	 	return this.top10Program.elements();
 	}
 	
 	@Override
