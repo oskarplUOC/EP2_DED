@@ -106,6 +106,8 @@ public interface TVUOCManager {
 	 * mètode que proporciona els programe especificat
 	 */
 	public Program program(String idChannel, String idProgram) throws EIException;
-	
 
+
+	public void updateTop10(Program program);
+	
 }

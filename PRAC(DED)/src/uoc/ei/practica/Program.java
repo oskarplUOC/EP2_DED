@@ -33,9 +33,17 @@ public class Program {
 	
 	public static Comparator<String>  COMP = new Comparator<String>() {
 		
-		public int compare(String arg0, String arg1) {
+		public int compare(String programsChannel0, String programsChannel1) {
 			
-			return arg0.compareTo(arg1);
+			return programsChannel0.compareTo(programsChannel1);
+		}		
+	};
+	
+	public static Comparator<String>  COMP1 = new Comparator<String>() {
+		
+		public int compare(String activityProgram0, String activityProgram1) {
+			
+			return activityProgram0.compareTo(activityProgram1);
 		}		
 	};
 	

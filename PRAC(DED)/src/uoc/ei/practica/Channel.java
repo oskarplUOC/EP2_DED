@@ -16,7 +16,7 @@ public class Channel {
 	
 	private OrderedVectorProgramChannel<String,Program> programsChannel;
 	
-	private OrderedVectorTop10<String, Program> channelTop10Program;
+	private ArrayTop <Program> channelTop10Program;
 	
 	public Channel(String idChannel, String name, String description) {
 		
@@ -24,10 +24,10 @@ public class Channel {
 		this.name=name;
 		this.description=description;
 		this.programsChannel = new OrderedVectorProgramChannel<String, Program>(PC, Program.COMP);
-		this.channelTop10Program = new OrderedVectorTop10<String, Program>(TOP_10, Program.COMP);
+		this.channelTop10Program = new ArrayTop<Program>();
 	} 
 	
-	public static Comparator<String>  COMP = new Comparator<String>() {
+	public static Comparator<String>  COMP2 = new Comparator<String>() {
 		
 		public int compare(String idChannel0, String idChannel1) {
 			
@@ -40,7 +40,7 @@ public class Channel {
 		return this.programsChannel;
 	}
 	
-	public OrderedVectorTop10<String, Program> getChannelTop10Program() {
+	public ArrayTop<Program> getChannelTop10Program() {
 		
 		return this.channelTop10Program;
 	}
@@ -53,10 +53,9 @@ public class Channel {
 		return sb.toString();
 	}
 
-	public void updateTop10(String idProgram, Program program) {
+	public void updateTop10(Program program) {
 		
-		this.channelTop10Program.afegir(idProgram, program);
-		
+		this.channelTop10Program.push(program);  	
 	}
 
 }

@@ -16,15 +16,15 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	
 	public Program topRating;
 	
-	private OrderedVectorTop10<String, Program> top10Program;
+	private ArrayTop<Program> top10Program;
 	
 	public TVUOCManagerImpl() {
 		
 		this.users = new IdentifiedList<User>();
 		
-		this.channels = new NormalVector<String, Channel>(C, Channel.COMP);
+		this.channels = new NormalVector<String, Channel>(C, Channel.COMP2);
 		
-		this.top10Program = new OrderedVectorTop10<String, Program>(TOP_10, Program.COMP);
+		this.top10Program = new ArrayTop<Program>();
 		
 		this.topRating = null;	
 	}
@@ -64,10 +64,11 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	@Override
 	public void addProgram(String id, String name, String description, String idChannel) throws EIException {
 		
-		Channel channel = this.channels.consultar(idChannel);
-        Program program = new Program(id, name, description, idChannel);
+		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
+        				
+		Program program = new Program(id, name, description, idChannel);
         
-        this.channels.consultar(idChannel).getProgramsChannel().afegir(id, program); 
+		this.channels.consultar(idChannel).getProgramsChannel().afegir(id, program); 
 	}
 
 	@Override
@@ -85,18 +86,16 @@ public class TVUOCManagerImpl implements TVUOCManager {
 				
 		user.addView(view); 
 		
-		updateTop10(idProgram, program);
+		updateTop10(program);
 		
-		channel.updateTop10 (idProgram,program);
+		channel.updateTop10 (program);
 		
-		
-	/*actualitzar tot el referent als top10*/
-    
 	}		
 	
-	public void updateTop10(String idProgram, Program program) {
-			
-		this.top10Program.afegir(idProgram, program);
+	public void updateTop10(Program program) {
+		
+		this.top10Program.push(program);  		
+		
 	}
 	
 	@Override
@@ -105,7 +104,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram, Messages.PROGRAM_NOT_FOUND);
 		
-		if (rating < 1 || rating > 5) {
+		if (rating < 0 || rating > 5) {
 			
 			throw new EIException (Messages.RATING_NOT_CORRECT);
 			
@@ -133,7 +132,6 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		if (this.top10Program.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
 		
 		return this.top10Program.elements();
-		
 	}
 	
 	@Override
@@ -142,10 +140,9 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		
 		Contenidor<Program> contenidor =  channel.getChannelTop10Program();  
-		
+				
 		return contenidor.elements();
 			
-		
 	}
 
 	@Override
@@ -178,7 +175,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		
 		Contenidor<Program> programsChannel = channel.getProgramsChannel(); 
-				
+		
 		if (programsChannel.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
 		
 		return programsChannel.elements();
