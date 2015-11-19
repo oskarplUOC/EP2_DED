@@ -33,7 +33,7 @@ public interface TVUOCManager {
 	
 	/**
 	 * 
-	 * @pre no existeix cap canal amb el codi idChannel
+	 * @pre no existeix cap canal amb el codi idChannel 
 	 * @post els canals seran els mateixos més un nou canal amb les dades indicades
 	 * 
 	 */
@@ -106,7 +106,6 @@ public interface TVUOCManager {
 	 * mètode que proporciona els programe especificat
 	 */
 	public Program program(String idChannel, String idProgram) throws EIException;
-
 
 	public void updateTop10(Program program);
 	

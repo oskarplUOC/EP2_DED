@@ -36,7 +36,7 @@ public class OrderedVectorProgramChannel<K,V> extends DiccionariVectorImpl<K,V> 
 	public boolean estaPle() {
 		return (super.n==super.diccionari.length);
 	}
-
+	
 	public void afegir(K clau,V obj) {
 	
 		super.afegir(clau, obj);

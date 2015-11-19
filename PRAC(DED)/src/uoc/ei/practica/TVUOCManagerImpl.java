@@ -4,7 +4,6 @@ import java.util.Date;
 
 import uoc.ei.tads.Contenidor;
 import uoc.ei.tads.Iterador;
-import uoc.ei.tads.IteradorVectorImpl;
 import uoc.ei.tads.Posicio;
 import uoc.ei.tads.Recorregut;
 
@@ -22,16 +21,16 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		this.users = new IdentifiedList<User>();
 		
-		this.channels = new NormalVector<String, Channel>(C, Channel.COMP2);
+		this.channels = new NormalVector<String, Channel>(C, Channel.COMP);
 		
-		this.top10Program = new ArrayTop<Program>();
+		this.top10Program = new ArrayTop<Program>(); 
 		
 		this.topRating = null;	
 	}
 	
 	@Override
 	public void addUser(String idUser, String email, String password) throws EIException {
-		//Prova commit
+		
 		 Posicio<User> posicio = null;
 		 User user = new User(idUser, email, password);
 	     boolean found = false;
@@ -58,19 +57,31 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		Channel channel = new Channel(idChannel, name, description);
 		this.channels.afegir(idChannel, channel);
-		
 	}
 
 	@Override
 	public void addProgram(String id, String name, String description, String idChannel) throws EIException {
 		
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
-        				
-		Program program = new Program(id, name, description, idChannel);
-        
-		this.channels.consultar(idChannel).getProgramsChannel().afegir(id, program); 
+		
+		boolean found = false; 
+		
+		Iterador<Channel> it = this.channels();
+		
+		while(it.hiHaSeguent() && !found) {
+			
+			if (it.seguent().getProgramsChannel().consultar(id) != null) {
+				
+				found = true;
+			}
+		}
+		
+		if(!found){
+			
+			Program program = new Program(id, name, description, idChannel);
+			channel.getProgramsChannel().afegir(id, program);
+		}
 	}
-
 	@Override
 	public void registerView(String idChannel, String idProgram, String idUser, Date dateTime) throws EIException {
 		
@@ -88,14 +99,31 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		updateTop10(program);
 		
-		channel.updateTop10 (program);
+		channel.updateTop10(program);
 		
 	}		
 	
 	public void updateTop10(Program program) {
 		
-		/*this.top10Program.addLastProgram(program);*/
+		if (!this.top10Program.estaPle()) {
+			
+			boolean found = false;
+			
+			Iterador<Program> it = this.top10Program.elements();
+			
+			while(it.hiHaSeguent() && !found) {
+				
+				if (it.seguent().getIdProgram() == program.getIdProgram()) {
 					
+					found = true;
+				} 
+			}
+			
+			if(!found){
+				
+				this.top10Program.addLastProgram(program);
+			}
+		}
 	}
 	
 	@Override
@@ -131,7 +159,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 					
 		if (this.top10Program.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
 		
-	 	return this.top10Program.elements();
+	 	return this.top10Program.elements(); 
 	}
 	
 	@Override
@@ -144,7 +172,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		return contenidor.elements();
 			
 	}
-
+	
 	@Override
 	public Program topRating() throws EIException {
 		
@@ -160,37 +188,33 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		return this.users.elements();
 	}
-
+	
+	/**
+	 * mètode que proporciona els canals del sistema
+	 */
 	@Override
 	public Iterador<Channel> channels() throws EIException {
 		
 		if (this.channels.estaBuit()) throw new EIException(Messages.NO_CHANNELS);
-		
-		return channels.elements();
+		return this.channels.elements();
 	}
-
+	
 	@Override
 	public Iterador<Program> programs(String idChannel) throws EIException {
 		
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
-		
 		Contenidor<Program> programsChannel = channel.getProgramsChannel(); 
 		
 		if (programsChannel.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
-		
 		return programsChannel.elements();
 	}
-
+	
 	@Override
 	public Program program(String idChannel, String idProgram) throws EIException {
 		
-		Channel channel = this.channels.consultar(idChannel);
+		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
 		
-		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram);
-		
-		if (channel == null) throw new EIException(Messages.CHANNEL_NOT_FOUND);
-		
-		if (program == null) throw new EIException(Messages.PROGRAM_NOT_FOUND);
+		Program program = channel.getProgramsChannel().consultar(idProgram, Messages.PROGRAM_NOT_FOUND);
 		
 		if (this.topRating == null || this.topRating.getRatingProgram() < program.getRatingProgram()) this.topRating = program;
 		
