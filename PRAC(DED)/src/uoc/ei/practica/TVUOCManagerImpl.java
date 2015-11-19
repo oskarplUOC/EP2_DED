@@ -94,7 +94,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	
 	public void updateTop10(Program program) {
 		
-		this.top10Program.addLastProgram(program);
+		/*this.top10Program.addLastProgram(program);*/
 					
 	}
 	
