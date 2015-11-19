@@ -1,6 +1,7 @@
 package uoc.ei.practica;
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
 
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
@@ -10,72 +11,61 @@ public class ArrayTop<Program> implements ContenidorAfitat<Program> {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Program[] container;
-    
-	private int top;
-    
-	public static final int TOP_10 = 10;
+	private Program[] top10;
 	
-    public ArrayTop() {
-		
-    	this(TOP_10);
-    }
+	public static final int TOP_10 = 10;
 
-    public ArrayTop(int initSize) {
+    private int currentSize;
+    
+    public ArrayTop(){
+        
+    	top10 = (Program[]) new Object[TOP_10];
+    }
+    
+    public void addLastProgram(Program program) {
+        
+    	top10[currentSize++] = program;
+    }
+	
+	@Override
+	public Iterador elements() {
 		
-    	container = (Program[]) new Object [initSize];
-        top = 0;
+		return this.elements();							
 	}
 
-	public Program getTop() {
-        
-    	if (top == 0)
-        
-    	return null;
-        return container[top];
-        
-    }
-    
-    @Override
+	@Override
 	public boolean estaBuit() {
 		
-		return (top == 0);
-	}
-    
-    public Program top() {
-        
-    	if (top == 0)
-      
-        return null;
-        return container[top--];
-    }
- 
-    public void push(Program program) {
-        
-    	container[++top] = program;
-    }
- 
-	@Override
-	public Iterador<Program> elements() {
+		if (top10.length == 0) {
+			
+			return true;			
+		}
 		
-		/*for ( Iterador it =  tad.elements(); it.hiHaSeguent(); )
-		     
-			System.out.println(it.seguent());*/
-		return this.elements();
+		return false;
+		
 	}
-	
+
 	@Override
 	public int nombreElems() {
 		
-		return (top + 1);
+		return this.currentSize;
 				
 	}
 
 	@Override
 	public boolean estaPle() {
 		
-		return top == this.top-1;
+		if (top10.length == 10) {
+			
+			return true;			
+		}
+		
+		return false;
 		
 	}	
 	
+	public String toString() {
+        
+		return Arrays.toString(top10);
+    }
 }
