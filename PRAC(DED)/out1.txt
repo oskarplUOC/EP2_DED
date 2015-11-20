@@ -138,23 +138,23 @@ void
 addProgram(P21, Fundamental ideas in chemistry, description1, CH2)
 void
 
-addProgram(P42, The mole2, description2, CH2)
+addProgram(P41, The mole, description2, CH2)
 void
-addProgram(P43, Chemistry for the Biosciences2, description3, CH2)
+addProgram(P42, Chemistry for the Biosciences, description3, CH2)
 void
-addProgram(P44, Fundamental ideas in chemistry2, description1, CH2)
+addProgram(P43, Fundamental ideas in chemistry, description1, CH2)
 void
-addProgram(P45, The mole2, description2, CH2)
+addProgram(P44, The mole, description2, CH2)
 void
-addProgram(P46, Chemistry for the Biosciences2, description3, CH2)
+addProgram(P45, Chemistry for the Biosciences, description3, CH2)
 void
-addProgram(P47, Fundamental ideas in chemistry2, description1, CH2)
+addProgram(P46, Fundamental ideas in chemistry, description1, CH2)
 void
-addProgram(P48, The mole2, description2, CH2)
+addProgram(P47, The mole, description2, CH2)
 void
-addProgram(P49, Chemistry for the Biosciences2, description3, CH2)
+addProgram(P48, Chemistry for the Biosciences, description3, CH2)
 void
-addProgram(P50, Fundamental ideas in chemistry2, description1, CH2)
+addProgram(P49, Fundamental ideas in chemistry, description1, CH2)
 void
 
 addProgram(P32, Diego Velázquez: Las Meninas, description2, CH3)
@@ -177,15 +177,15 @@ programs(CH2)
 P21, Fundamental ideas in chemistry, description1 views(0) rating(0.0) 
 P22, The mole, description2 views(0) rating(0.0) 
 P23, Chemistry for the Biosciences, description3 views(0) rating(0.0) 
-P42, The mole2, description2 views(0) rating(0.0) 
-P43, Chemistry for the Biosciences2, description3 views(0) rating(0.0) 
-P44, Fundamental ideas in chemistry2, description1 views(0) rating(0.0) 
-P45, The mole2, description2 views(0) rating(0.0) 
-P46, Chemistry for the Biosciences2, description3 views(0) rating(0.0) 
-P47, Fundamental ideas in chemistry2, description1 views(0) rating(0.0) 
-P48, The mole2, description2 views(0) rating(0.0) 
-P49, Chemistry for the Biosciences2, description3 views(0) rating(0.0) 
-P50, Fundamental ideas in chemistry2, description1 views(0) rating(0.0) 
+P41, The mole, description2 views(0) rating(0.0) 
+P42, Chemistry for the Biosciences, description3 views(0) rating(0.0) 
+P43, Fundamental ideas in chemistry, description1 views(0) rating(0.0) 
+P44, The mole, description2 views(0) rating(0.0) 
+P45, Chemistry for the Biosciences, description3 views(0) rating(0.0) 
+P46, Fundamental ideas in chemistry, description1 views(0) rating(0.0) 
+P47, The mole, description2 views(0) rating(0.0) 
+P48, Chemistry for the Biosciences, description3 views(0) rating(0.0) 
+P49, Fundamental ideas in chemistry, description1 views(0) rating(0.0) 
 
 programs(CH3)
 P31, Pablo Picasso paintings, description1 views(0) rating(0.0) 
@@ -252,6 +252,8 @@ void
 registerView(CH1, P11, U8, 30-10-2015 21:00:00)
 void
 
+registerView(CH2, P41, U8, 30-10-2015 21:00:00)
+void
 registerView(CH2, P42, U8, 30-10-2015 21:00:00)
 void
 registerView(CH2, P43, U8, 30-10-2015 21:00:00)
@@ -266,14 +268,14 @@ registerView(CH2, P47, U8, 30-10-2015 21:00:00)
 void
 registerView(CH2, P48, U8, 30-10-2015 21:00:00)
 void
+
 registerView(CH2, P49, U8, 30-10-2015 21:00:00)
 void
-registerView(CH2, P50, U8, 30-10-2015 21:00:00)
+registerView(CH2, P49, U8, 30-10-2015 21:00:00)
 void
-registerView(CH2, P50, U8, 30-10-2015 21:00:00)
+registerView(CH2, P49, U8, 30-10-2015 21:00:00)
 void
-registerView(CH2, P50, U8, 30-10-2015 21:00:00)
-void
+
 
 getUserViews(U1)
 P11, Discovering the work of Isaac Newton, description1, (4)
@@ -344,15 +346,15 @@ programs(CH2)
 P21, Fundamental ideas in chemistry, description1 views(1) rating(4.0) 
 P22, The mole, description2 views(1) rating(1.0) 
 P23, Chemistry for the Biosciences, description3 views(6) rating(2.0) 
-P42, The mole2, description2 views(1) rating(0.0) 
-P43, Chemistry for the Biosciences2, description3 views(1) rating(0.0) 
-P44, Fundamental ideas in chemistry2, description1 views(1) rating(0.0) 
-P45, The mole2, description2 views(1) rating(0.0) 
-P46, Chemistry for the Biosciences2, description3 views(1) rating(0.0) 
-P47, Fundamental ideas in chemistry2, description1 views(1) rating(0.0) 
-P48, The mole2, description2 views(1) rating(0.0) 
-P49, Chemistry for the Biosciences2, description3 views(1) rating(0.0) 
-P50, Fundamental ideas in chemistry2, description1 views(3) rating(0.0) 
+P41, The mole, description2 views(1) rating(0.0) 
+P42, Chemistry for the Biosciences, description3 views(1) rating(0.0) 
+P43, Fundamental ideas in chemistry, description1 views(1) rating(0.0) 
+P44, The mole, description2 views(1) rating(0.0) 
+P45, Chemistry for the Biosciences, description3 views(1) rating(0.0) 
+P46, Fundamental ideas in chemistry, description1 views(1) rating(0.0) 
+P47, The mole, description2 views(1) rating(0.0) 
+P48, Chemistry for the Biosciences, description3 views(1) rating(0.0) 
+P49, Fundamental ideas in chemistry, description1 views(3) rating(0.0) 
 
 getTop10Programs()
 P11, Discovering the work of Isaac Newton, description1 views(4) rating(1.8) 
@@ -361,19 +363,19 @@ P13, Newton's Third Law, description3 views(5) rating(5.0)
 P21, Fundamental ideas in chemistry, description1 views(1) rating(4.0) 
 P23, Chemistry for the Biosciences, description3 views(6) rating(2.0) 
 P22, The mole, description2 views(1) rating(1.0) 
-P42, The mole2, description2 views(1) rating(0.0) 
-P43, Chemistry for the Biosciences2, description3 views(1) rating(0.0) 
-P44, Fundamental ideas in chemistry2, description1 views(1) rating(0.0) 
-P45, The mole2, description2 views(1) rating(0.0) 
+P41, The mole, description2 views(1) rating(0.0) 
+P42, Chemistry for the Biosciences, description3 views(1) rating(0.0) 
+P43, Fundamental ideas in chemistry, description1 views(1) rating(0.0) 
+P44, The mole, description2 views(1) rating(0.0) 
 
 getChannelTop10Programs(CH2)
 P21, Fundamental ideas in chemistry, description1 views(1) rating(4.0) 
 P23, Chemistry for the Biosciences, description3 views(6) rating(2.0) 
 P22, The mole, description2 views(1) rating(1.0) 
-P42, The mole2, description2 views(1) rating(0.0) 
-P43, Chemistry for the Biosciences2, description3 views(1) rating(0.0) 
-P44, Fundamental ideas in chemistry2, description1 views(1) rating(0.0) 
-P45, The mole2, description2 views(1) rating(0.0) 
-P46, Chemistry for the Biosciences2, description3 views(1) rating(0.0) 
-P47, Fundamental ideas in chemistry2, description1 views(1) rating(0.0) 
-P48, The mole2, description2 views(1) rating(0.0) 
+P41, The mole, description2 views(1) rating(0.0) 
+P42, Chemistry for the Biosciences, description3 views(1) rating(0.0) 
+P43, Fundamental ideas in chemistry, description1 views(1) rating(0.0) 
+P44, The mole, description2 views(1) rating(0.0) 
+P45, Chemistry for the Biosciences, description3 views(1) rating(0.0) 
+P46, Fundamental ideas in chemistry, description1 views(1) rating(0.0) 
+P47, The mole, description2 views(1) rating(0.0) 

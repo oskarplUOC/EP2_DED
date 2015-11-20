@@ -1,9 +1,12 @@
 package uoc.ei.practica;
 
+import java.lang.reflect.Array;
+
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
 import uoc.ei.tads.IteradorVectorImpl;
 
+@SuppressWarnings("hiding")
 public class ArrayTop<Program> implements ContenidorAfitat<Program> {
 
 	private static final long serialVersionUID = 1L;
@@ -16,7 +19,12 @@ public class ArrayTop<Program> implements ContenidorAfitat<Program> {
        
     public ArrayTop(){
         
-    	top10 = (Program[]) new Object[this.maximSize];
+    	@SuppressWarnings("unchecked")
+		final Program[] top10 = (Program[]) Array.newInstance(uoc.ei.practica.Program.class, maximSize);
+
+		this.top10 = top10;	
+    	
+    	/*top10 = (Program[]) new Object[this.maximSize];*/
     	
     }
     

@@ -1,5 +1,6 @@
 package uoc.ei.practica;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import uoc.ei.tads.Contenidor;
@@ -130,6 +131,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	public void rateProgram(String idChannel, String idProgram, int rating) throws EIException {
 		
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
+		
 		Program program = this.channels.consultar(idChannel).getProgramsChannel().consultar(idProgram, Messages.PROGRAM_NOT_FOUND);
 		
 		if (rating < 0 || rating > 5) {
@@ -189,13 +191,11 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		return this.users.elements();
 	}
 	
-	/**
-	 * mètode que proporciona els canals del sistema
-	 */
 	@Override
 	public Iterador<Channel> channels() throws EIException {
 		
 		if (this.channels.estaBuit()) throw new EIException(Messages.NO_CHANNELS);
+		
 		return this.channels.elements();
 	}
 	
@@ -203,9 +203,11 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	public Iterador<Program> programs(String idChannel) throws EIException {
 		
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
+		
 		Contenidor<Program> programsChannel = channel.getProgramsChannel(); 
 		
 		if (programsChannel.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
+		
 		return programsChannel.elements();
 	}
 	
