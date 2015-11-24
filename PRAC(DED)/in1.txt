@@ -109,6 +109,8 @@ registerView, CH2, P23, U8,  30-10-2015 21:00:00
 registerView, CH1, P11, U7,  30-10-2015 21:00:00
 registerView, CH1, P11, U8,  30-10-2015 21:00:00
 
+registerView, CH2, P21, U7,  30-10-2015 21:00:00
+
 getUserViews, U1
 
 getUserViews, U2

@@ -16,7 +16,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	
 	public Program topRating;
 	
-	private ArrayTop<Program> top10Program;
+	private ArrayTop top10Program;
 	
 	public TVUOCManagerImpl() {
 		
@@ -24,7 +24,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		
 		this.channels = new NormalVector<String, Channel>(C, Channel.COMP);
 		
-		this.top10Program = new ArrayTop<Program>(); 
+		this.top10Program = new ArrayTop(); 
 		
 		this.topRating = null;	
 	}
@@ -80,6 +80,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 		if(!found){
 			
 			Program program = new Program(id, name, description, idChannel);
+			
 			channel.getProgramsChannel().afegir(id, program);
 		}
 	}
@@ -117,7 +118,7 @@ public class TVUOCManagerImpl implements TVUOCManager {
 				if (it.seguent().getIdProgram() == program.getIdProgram()) {
 					
 					found = true;
-				} 
+				}
 			}
 			
 			if(!found){

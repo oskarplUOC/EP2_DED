@@ -1,13 +1,12 @@
 package uoc.ei.practica;
 
-import java.lang.reflect.Array;
+import java.util.Comparator;
 
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
 import uoc.ei.tads.IteradorVectorImpl;
 
-@SuppressWarnings("hiding")
-public class ArrayTop<Program> implements ContenidorAfitat<Program> {
+public class ArrayTop implements ContenidorAfitat<Program> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -15,16 +14,25 @@ public class ArrayTop<Program> implements ContenidorAfitat<Program> {
 	
 	private int maximSize = 10;
 
-    private int currentSize;
+	private Comparator<Program> comparator;
+	
+	private int currentSize;
        
-    public ArrayTop(){
+	public static Comparator<Program> CompTop10 = new Comparator<Program>() {
+         
+		@Override
+        public int compare(Program p1, Program p2) {
+               
+         	return (p2.getActivityProgram() - p1.getActivityProgram());
+         	
+         }       
+    };
+	
+	public ArrayTop(){
         
-    	@SuppressWarnings("unchecked")
-		final Program[] top10 = (Program[]) Array.newInstance(uoc.ei.practica.Program.class, maximSize);
-
-		this.top10 = top10;	
+    	top10 =  new Program[this.maximSize];
     	
-    	/*top10 = (Program[]) new Object[this.maximSize];*/
+    	comparator = ArrayTop.CompTop10;    	
     	
     }
     
@@ -32,13 +40,29 @@ public class ArrayTop<Program> implements ContenidorAfitat<Program> {
     	
     	top10[currentSize++] = program;
     	
+    	int i=0;
+    	
+    	for (int j = 0; j < top10.length; j++) {
+        
+    		 // has de treballar aquest mètode
+            // si ha un element que sigui menor que el que ens arriba. si?
+    		
+    		if (this.comparator.compare(program, top10[i]) > 0) {
+    			
+      		}
+    		
+    		else {
+    			
+    		}
+        }
     }
     	
 	@Override
 	public Iterador<Program> elements() {
 		
 		Iterador<Program> it = new IteradorVectorImpl<Program>(this.top10, this.currentSize, 0);
-	    return it;
+	    
+		return it;
 								
 	}
 
@@ -71,5 +95,6 @@ public class ArrayTop<Program> implements ContenidorAfitat<Program> {
 		
 		return false;
 		
-	}	
+	}
+	
 }
