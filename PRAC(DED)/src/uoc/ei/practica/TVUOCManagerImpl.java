@@ -162,6 +162,8 @@ public class TVUOCManagerImpl implements TVUOCManager {
 					
 		if (this.top10Program.estaBuit()) throw new EIException(Messages.NO_PROGRAMS);
 		
+		top10Program.ordenarTop10();
+		
 	 	return this.top10Program.elements(); 
 	}
 	
@@ -169,10 +171,10 @@ public class TVUOCManagerImpl implements TVUOCManager {
 	public Iterador<Program> getChannelTop10Programs(String idChannel) throws EIException {
 		
 		Channel channel = this.channels.consultar(idChannel, Messages.CHANNEL_NOT_FOUND);
-		
-		Contenidor<Program> contenidor =  channel.getChannelTop10Program();  
-				
-		return contenidor.elements();
+		ArrayTop programs = this.channels.consultar(idChannel).getChannelTop10Program();
+		 
+		programs.ordenarTop10();
+		return programs.elements();
 			
 	}
 	

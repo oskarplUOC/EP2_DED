@@ -1,7 +1,5 @@
 package uoc.ei.practica;
 
-import java.util.Comparator;
-
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.Iterador;
 import uoc.ei.tads.IteradorVectorImpl;
@@ -12,27 +10,13 @@ public class ArrayTop implements ContenidorAfitat<Program> {
 
 	private Program[] top10;
 	
-	private Comparator<Program> comparator;
-	
 	private int maximSize = 10;
 
 	private int currentSize;
        
-	public static Comparator<Program> CompTop10 = new Comparator<Program>() {
-         
-		@Override
-        public int compare(Program p1, Program p2) {
-               
-         	return (p2.getActivityProgram() - p1.getActivityProgram());
-         	
-        }       
-    };
-	
 	public ArrayTop(){
         
     	top10 =  new Program[this.maximSize];
-    	
-    	comparator = ArrayTop.CompTop10;   	
     	
     }
     
@@ -40,24 +24,31 @@ public class ArrayTop implements ContenidorAfitat<Program> {
     	
     	top10[currentSize++] = p;
     	
-    	int i = 0;
+    }
+    
+    public void ordenarTop10(){
     	
-    	// si ha un element que sigui menor que el que ens arriba.
+    	int maxPosicio = this.nombreElems();
     	
-    	for (int j = 0; j < top10.length; j++) {
-        
-    		if (this.comparator.compare(p, top10[i]) > 0) {
+    	Program temp;
+    	
+    	for ( int i = 0; i < (maxPosicio - 1); i++ ) {
+    		
+    		for ( int j = (i + 1); j < maxPosicio; j++ ) {
     			
-    			Program variableauxiliar = top10[j];	
-    			
-    			top10[j] = top10[i];
-    			
-    			top10[i] = variableauxiliar;
-    				 				
-    		}
+    			if ( top10[i].getActivityProgram() < top10[j].getActivityProgram() ) {
+    				
+    				temp = top10[i];
+    				
+    				top10[i] = top10[j];
+    				
+    				top10[j] = temp;
+    			}
+    		} 
     	}
-    }	
-	
+    }
+    
+    
     @Override
 	public Iterador<Program> elements() {
 		
