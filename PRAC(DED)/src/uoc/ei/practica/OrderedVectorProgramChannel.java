@@ -27,6 +27,7 @@ public class OrderedVectorProgramChannel<K,V> extends DiccionariVectorImpl<K,V> 
 
 
 	public OrderedVectorProgramChannel(int max, Comparator<K> comparator) {
+		
 		super(max);
 		this.comparator = comparator;
 	}
@@ -49,6 +50,7 @@ public class OrderedVectorProgramChannel<K,V> extends DiccionariVectorImpl<K,V> 
 		ClauValor last=this.diccionari[this.n-1];
 		
 		while (i>=0 && !done) {
+			
 			kv = this.diccionari[i]; 
 			
 			if (this.comparator.compare((K) kv.getClau(), clau)>0) {

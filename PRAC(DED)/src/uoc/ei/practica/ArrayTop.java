@@ -12,10 +12,10 @@ public class ArrayTop implements ContenidorAfitat<Program> {
 
 	private Program[] top10;
 	
-	private int maximSize = 10;
-
 	private Comparator<Program> comparator;
 	
+	private int maximSize = 10;
+
 	private int currentSize;
        
 	public static Comparator<Program> CompTop10 = new Comparator<Program>() {
@@ -25,39 +25,40 @@ public class ArrayTop implements ContenidorAfitat<Program> {
                
          	return (p2.getActivityProgram() - p1.getActivityProgram());
          	
-         }       
+        }       
     };
 	
 	public ArrayTop(){
         
     	top10 =  new Program[this.maximSize];
     	
-    	comparator = ArrayTop.CompTop10;    	
+    	comparator = ArrayTop.CompTop10;   	
     	
     }
     
-    public void addLastProgram(Program program) { 
+    public void addLastProgram(Program p) { 
     	
-    	top10[currentSize++] = program;
+    	top10[currentSize++] = p;
     	
-    	int i=0;
+    	int i = 0;
+    	
+    	// si ha un element que sigui menor que el que ens arriba.
     	
     	for (int j = 0; j < top10.length; j++) {
         
-    		 // has de treballar aquest mètode
-            // si ha un element que sigui menor que el que ens arriba. si?
-    		
-    		if (this.comparator.compare(program, top10[i]) > 0) {
+    		if (this.comparator.compare(p, top10[i]) > 0) {
     			
-      		}
-    		
-    		else {
+    			Program variableauxiliar = top10[j];	
     			
+    			top10[j] = top10[i];
+    			
+    			top10[i] = variableauxiliar;
+    				 				
     		}
-        }
-    }
-    	
-	@Override
+    	}
+    }	
+	
+    @Override
 	public Iterador<Program> elements() {
 		
 		Iterador<Program> it = new IteradorVectorImpl<Program>(this.top10, this.currentSize, 0);

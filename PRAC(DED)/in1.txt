@@ -59,6 +59,16 @@ addProgram, P22, The mole, description2, CH2
 addProgram, P23, Chemistry for the Biosciences, description3, CH2  
 addProgram, P21, Fundamental ideas in chemistry, description1, CH2
 
+addProgram, P41, The mole2, description2, CH2  
+addProgram, P42, Chemistry for the Biosciences2, description3, CH2  
+addProgram, P43, Fundamental ideas in chemistry2, description1, CH2
+addProgram, P44, The mole3, description2, CH2  
+addProgram, P45, Chemistry for the Biosciences3, description3, CH2  
+addProgram, P46, Fundamental ideas in chemistry3, description1, CH2
+addProgram, P47, The mole4, description2, CH2  
+addProgram, P48, Chemistry for the Biosciences4, description3, CH2  
+addProgram, P49, Fundamental ideas in chemistry4, description1, CH2
+
 addProgram, P32, Diego Velázquez: Las Meninas, description2, CH3
 addProgram, P33, Da Vinci: The Lost Treasure, description3, CH3
 addProgram, P31, Pablo Picasso paintings, description1, CH3
@@ -110,6 +120,19 @@ registerView, CH1, P11, U7,  30-10-2015 21:00:00
 registerView, CH1, P11, U8,  30-10-2015 21:00:00
 
 registerView, CH2, P21, U7,  30-10-2015 21:00:00
+
+registerView, CH2, P41, U8,  30-10-2015 21:00:00
+registerView, CH2, P42, U8,  30-10-2015 21:00:00
+registerView, CH2, P43, U8,  30-10-2015 21:00:00
+registerView, CH2, P44, U8,  30-10-2015 21:00:00
+registerView, CH2, P45, U8,  30-10-2015 21:00:00
+registerView, CH2, P46, U8,  30-10-2015 21:00:00
+registerView, CH2, P47, U8,  30-10-2015 21:00:00
+registerView, CH2, P48, U8,  30-10-2015 21:00:00
+
+registerView, CH2, P49, U8,  30-10-2015 21:00:00
+registerView, CH2, P49, U8,  30-10-2015 21:00:00
+registerView, CH2, P49, U8,  30-10-2015 21:00:00
 
 getUserViews, U1
 

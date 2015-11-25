@@ -6,6 +6,8 @@ import uoc.ei.tads.LlistaEncadenada;
 
 public class IdentifiedList<E> extends LlistaEncadenada<E> {
 
+	private static final long serialVersionUID = 1L;
+
 	protected  E getIdentifiedObject(String identifier, String exceptionMessage) throws EIException {
 		IdentifiedObject result=null;
 		if (this.nombreElems()>0) {

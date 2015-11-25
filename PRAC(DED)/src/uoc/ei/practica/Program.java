@@ -2,7 +2,7 @@ package uoc.ei.practica;
 
 import java.util.Comparator;
 
-public class Program implements Comparable<Program>{
+public class Program {
 	
 	private String idProgram;
 
@@ -33,9 +33,9 @@ public class Program implements Comparable<Program>{
 	
 	public static Comparator<String>  COMP1 = new Comparator<String>() {
 		
-		public int compare(String programsChannel0, String programsChannel1) {
+		public int compare(String arg0, String arg1) {
 			
-			return programsChannel0.compareTo(programsChannel1);
+			return arg0.compareTo(arg1);
 		}		
 	};
 	
@@ -96,20 +96,14 @@ public class Program implements Comparable<Program>{
 		return idChannel;
 	}
 
-	@Override
-	public int compareTo(Program p) {
+	public int getRating() {
 		
-		if (activityProgram < p.activityProgram) {
-            
-			return -1;
-        }
-        
-		if (activityProgram > p.activityProgram) {
-            
-			return 1;
-        }
-        
-		return 0;
-    }
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		
+		this.rating = rating;
+	}
 
 }

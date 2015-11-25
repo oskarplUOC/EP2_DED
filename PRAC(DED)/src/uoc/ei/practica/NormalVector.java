@@ -2,7 +2,6 @@ package uoc.ei.practica;
 
 import java.util.Comparator;
 
-import uoc.ei.tads.ClauValor;
 import uoc.ei.tads.ContenidorAfitat;
 import uoc.ei.tads.DiccionariVectorImpl;
 import uoc.ei.tads.Iterador;
@@ -36,9 +35,9 @@ public class NormalVector<K,V> extends DiccionariVectorImpl<K,V> implements Cont
 	
 	public V consultar(K clau) {
 		
-		int pos = this.binary_search(clau, 0, this.n-1);
+		int pos = this.lineal_search(clau, this.n-1);
 		
-		return (pos!=this.KEY_NOT_FOUND?this.diccionari[pos].getValor():null);		
+		return (pos!= NormalVector.KEY_NOT_FOUND?this.diccionari[pos].getValor():null);		
 	}
 
 	public V consultar(K clau, String message) throws EIException {
@@ -50,37 +49,22 @@ public class NormalVector<K,V> extends DiccionariVectorImpl<K,V> implements Cont
 		return value;
 	}
 
-	private int binary_search(K key, int imin, int imax) {
-		 
-		  if (imax < imin)
-		    
-		    return KEY_NOT_FOUND;
-		  
-		  else {
-			  
-		    int imid = midpoint(imin, imax);
-		   
-		    if (this.comparator.compare(this.diccionari[imid].getClau(), key)>0)
-		        
-		        return binary_search(key, imin, imid-1);
-		      
-		    else if (this.comparator.compare(this.diccionari[imid].getClau(), key)<0)
-		    	  
-		        return binary_search(key, imid+1, imax);
-		      
-		    else
-		        
-		    	return imid;
-		    }
-		}
 	
-	private int midpoint(int imin, int imax) {
+	private int lineal_search(K key, int max) {
 		
-		return imin + ((imax - imin) / 2);
+		 int posicio = -1;
+		  
+		 for(int i = 0; i <= max; i++){
+		      if(this.comparator.compare(this.diccionari[i].getClau(), key)==0) {
+		    	  posicio = i;
+		    	  break;
+		   }
+		 }
+		 
+		 return posicio;
 	}
 
-
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 		
 		Comparator<String> cmp = new Comparator<String>() {
 

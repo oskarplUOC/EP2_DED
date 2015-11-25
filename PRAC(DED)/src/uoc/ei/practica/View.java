@@ -17,7 +17,7 @@ public class View {
 		this.idChannel = idChannel;
 		this.pr = pr;
 		this.idUser = idUser;
-		this.startTime = startTime;
+		this.setStartTime(startTime);
 		
 	}
 	
@@ -47,7 +47,15 @@ public class View {
 		return sb.toString();
 		
 	}
+
+	public Date getStartTime() {
 		
-	
-	
+		return startTime;
+	}
+
+	public void setStartTime(Date startTime) {
+		
+		this.startTime = startTime;
+	}
+		
 }

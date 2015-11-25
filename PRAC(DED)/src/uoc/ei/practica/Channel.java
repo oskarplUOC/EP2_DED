@@ -31,9 +31,9 @@ public class Channel {
 	
 	public static Comparator<String>  COMP = new Comparator<String>() {
 		
-		public int compare(String idChannel0, String idChannel1) {
+		public int compare(String arg0, String arg1) {
 			
-			return idChannel0.compareTo(idChannel1);
+			return arg0.compareTo(arg1);
 		}		
 	};
 	

@@ -1,6 +1,6 @@
 package uoc.ei.practica;
 
-import java.util.Arrays;
+
 import java.util.Date;
 
 import uoc.ei.tads.Contenidor;
